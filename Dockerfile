@@ -10,5 +10,5 @@ RUN apk add --no-cache curl \
 WORKDIR /gost
 EXPOSE ${TLS_PORT} $PORT
 
-CMD exec /gost/gost -L=ss+wss://$METHOD:$PASSWORD@:$TLS_PORT -L=ss+ws://$METHOD:$PASSWORD@:$PORT
+CMD exec /gost/gost -L=ss+wss://$METHOD:$PASSWORD@:$TLS_PORT?path=/proxy -L=ss+ws://$METHOD:$PASSWORD@:$PORT?path=/proxy
 
